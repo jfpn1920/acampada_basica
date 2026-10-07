@@ -1,0 +1,1 @@
+# acampada_basica
