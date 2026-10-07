@@ -1,0 +1,196 @@
+/* ===== VARIABLES DE COLOR (se usan en todo el archivo) ===== */
+:root {
+    --fondo: #eef0e6;          /* fondo de la página */
+    --panel: #ffffff;          /* fondo de las tarjetas */
+    --texto: #25291f;          /* color principal del texto */
+    --texto-suave: #6a705d;    /* textos secundarios */
+    --borde: #d9ddcb;          /* color de los bordes */
+    --acento: #3f6b3a;         /* verde bosque: botones y progreso */
+    --fogata: #d9772b;         /* naranja fogata: detalles */
+    --error: #b3261e;          /* rojo para errores y eliminar */
+}
+/* ===== REINICIO BÁSICO ===== */
+* {
+    box-sizing: border-box;    /* el padding no agranda los elementos */
+    margin: 0;
+    padding: 0;
+}
+/* Hace que el atributo "hidden" siempre oculte el elemento */
+[hidden] {
+    display: none !important;
+}
+/* ===== ESTILO GENERAL DE LA PÁGINA ===== */
+body {
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    line-height: 1.5;
+    padding: 24px 16px;
+}
+/* Contenedor central con ancho máximo */
+.app {
+    max-width: 560px;
+    margin: 0 auto;
+}
+/* ===== ENCABEZADO ===== */
+.encabezado {
+    margin-bottom: 20px;
+}
+.encabezado h1 {
+    font-size: 2rem;
+    color: var(--acento);
+}
+.encabezado p {
+    color: var(--texto-suave);
+}
+/* ===== TARJETAS (paneles) ===== */
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+.panel h2 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+}
+/* ===== PROGRESO ===== */
+.texto-progreso {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.barra {
+    height: 14px;
+    background: var(--borde);
+    border-radius: 7px;
+    overflow: hidden;          /* recorta el relleno en las esquinas */
+}
+.relleno {
+    height: 100%;
+    width: 0;                  /* JavaScript cambia este ancho */
+    background: var(--acento);
+    transition: width 0.3s;    /* movimiento suave al cambiar */
+}
+.listo {
+    margin-top: 10px;
+    font-weight: bold;
+    color: var(--fogata);
+}
+/* ===== FORMULARIO ===== */
+.formulario {
+    display: flex;
+    flex-wrap: wrap;           /* en pantallas pequeñas los campos bajan de línea */
+    gap: 10px;
+    align-items: flex-end;
+}
+.campo {
+    flex: 1;
+    min-width: 140px;
+    display: flex;
+    flex-direction: column;    /* etiqueta arriba, campo abajo */
+    gap: 4px;
+}
+label {
+    font-size: 0.9rem;
+    color: var(--texto-suave);
+}
+input[type="text"],
+select {
+    padding: 10px;
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: #fff;
+}
+input:focus,
+select:focus {
+    outline: 2px solid var(--acento);
+}
+.boton {
+    padding: 11px 20px;
+    background: var(--acento);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+/* Mensaje de error del formulario */
+.mensaje {
+    color: var(--error);
+    font-size: 0.9rem;
+    min-height: 1.3em;         /* evita que el diseño salte al aparecer */
+    margin-top: 8px;
+}
+/* ===== FILTROS ===== */
+.filtros {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+.filtro {
+    padding: 6px 14px;
+    background: none;
+    color: var(--texto);
+    border: 1px solid var(--borde);
+    border-radius: 20px;
+    cursor: pointer;
+}
+/* Filtro seleccionado (JavaScript le agrega la clase "activo") */
+.filtro.activo {
+    background: var(--acento);
+    border-color: var(--acento);
+    color: #fff;
+}
+/* ===== LISTA DE OBJETOS ===== */
+.lista {
+    list-style: none;
+}
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--borde);
+}
+/* Parte izquierda: casilla, nombre y categoría */
+.item label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    color: var(--texto);
+    font-size: 1rem;
+    cursor: pointer;
+}
+/* Objeto empacado: texto tachado y apagado (clase agregada con JavaScript) */
+.item.listo .nombre {
+    text-decoration: line-through;
+    color: var(--texto-suave);
+}
+.etiqueta {
+    font-size: 0.75rem;
+    color: var(--fogata);
+    border: 1px solid var(--fogata);
+    border-radius: 10px;
+    padding: 0 8px;
+}
+/* Botones de texto (eliminar y desmarcar) */
+.btn-texto {
+    background: none;
+    border: none;
+    color: var(--error);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+#btnDesmarcar {
+    margin-top: 12px;
+    color: var(--texto-suave);
+}
+.vacio {
+    color: var(--texto-suave);
+    padding: 8px 0;
+}
