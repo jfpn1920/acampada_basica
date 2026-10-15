@@ -1,25 +1,24 @@
-/* ===== VARIABLES DE COLOR (se usan en todo el archivo) ===== */
-:root {
-    --fondo: #eef0e6;          /* fondo de la página */
-    --panel: #ffffff;          /* fondo de las tarjetas */
-    --texto: #25291f;          /* color principal del texto */
-    --texto-suave: #6a705d;    /* textos secundarios */
-    --borde: #d9ddcb;          /* color de los bordes */
-    --acento: #3f6b3a;         /* verde bosque: botones y progreso */
-    --fogata: #d9772b;         /* naranja fogata: detalles */
-    --error: #b3261e;          /* rojo para errores y eliminar */
-}
-/* ===== REINICIO BÁSICO ===== */
 * {
-    box-sizing: border-box;    /* el padding no agranda los elementos */
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-/* Hace que el atributo "hidden" siempre oculte el elemento */
+:root {
+    --fondo: #eef0e6;
+    --panel: #ffffff;
+    --texto: #25291f;
+    --texto-suave: #6a705d;
+    --borde: #d9ddcb;
+    --acento: #3f6b3a;
+    --fogata: #d9772b;
+    --error: #b3261e;
+}
 [hidden] {
     display: none !important;
 }
-/* ===== ESTILO GENERAL DE LA PÁGINA ===== */
+/*----------------------------*/
+/*--|estilo_acampada_basica|--*/
+/*----------------------------*/
 body {
     font-family: "Trebuchet MS", "Segoe UI", sans-serif;
     background: var(--fondo);
@@ -27,12 +26,13 @@ body {
     line-height: 1.5;
     padding: 24px 16px;
 }
-/* Contenedor central con ancho máximo */
 .app {
     max-width: 560px;
     margin: 0 auto;
 }
-/* ===== ENCABEZADO ===== */
+/*-----------------------*/
+/*--|estilo_encabezado|--*/
+/*-----------------------*/
 .encabezado {
     margin-bottom: 20px;
 }
@@ -43,7 +43,9 @@ body {
 .encabezado p {
     color: var(--texto-suave);
 }
-/* ===== TARJETAS (paneles) ===== */
+/*--------------------*/
+/*--|estilo_paneles|--*/
+/*--------------------*/
 .panel {
     background: var(--panel);
     border: 1px solid var(--borde);
@@ -55,7 +57,9 @@ body {
     font-size: 1.1rem;
     margin-bottom: 12px;
 }
-/* ===== PROGRESO ===== */
+/*---------------------*/
+/*--|estilo_progreso|--*/
+/*---------------------*/
 .texto-progreso {
     font-weight: bold;
     margin-bottom: 8px;
@@ -64,23 +68,25 @@ body {
     height: 14px;
     background: var(--borde);
     border-radius: 7px;
-    overflow: hidden;          /* recorta el relleno en las esquinas */
+    overflow: hidden;
 }
 .relleno {
     height: 100%;
-    width: 0;                  /* JavaScript cambia este ancho */
+    width: 0;
     background: var(--acento);
-    transition: width 0.3s;    /* movimiento suave al cambiar */
+    transition: width 0.3s;
 }
-.listo {
+.todo-listo {
     margin-top: 10px;
     font-weight: bold;
     color: var(--fogata);
 }
-/* ===== FORMULARIO ===== */
+/*-----------------------*/
+/*--|estilo_formulario|--*/
+/*-----------------------*/
 .formulario {
     display: flex;
-    flex-wrap: wrap;           /* en pantallas pequeñas los campos bajan de línea */
+    flex-wrap: wrap;
     gap: 10px;
     align-items: flex-end;
 }
@@ -88,7 +94,7 @@ body {
     flex: 1;
     min-width: 140px;
     display: flex;
-    flex-direction: column;    /* etiqueta arriba, campo abajo */
+    flex-direction: column;
     gap: 4px;
 }
 label {
@@ -117,14 +123,15 @@ select:focus {
     font-size: 1rem;
     cursor: pointer;
 }
-/* Mensaje de error del formulario */
 .mensaje {
     color: var(--error);
     font-size: 0.9rem;
-    min-height: 1.3em;         /* evita que el diseño salte al aparecer */
+    min-height: 1.3em;
     margin-top: 8px;
 }
-/* ===== FILTROS ===== */
+/*--------------------*/
+/*--|estilo_filtros|--*/
+/*--------------------*/
 .filtros {
     display: flex;
     gap: 8px;
@@ -138,13 +145,14 @@ select:focus {
     border-radius: 20px;
     cursor: pointer;
 }
-/* Filtro seleccionado (JavaScript le agrega la clase "activo") */
 .filtro.activo {
     background: var(--acento);
     border-color: var(--acento);
     color: #fff;
 }
-/* ===== LISTA DE OBJETOS ===== */
+/*------------------*/
+/*--|estilo_lista|--*/
+/*------------------*/
 .lista {
     list-style: none;
 }
@@ -156,7 +164,6 @@ select:focus {
     padding: 10px 0;
     border-bottom: 1px solid var(--borde);
 }
-/* Parte izquierda: casilla, nombre y categoría */
 .item label {
     display: flex;
     align-items: center;
@@ -166,8 +173,7 @@ select:focus {
     font-size: 1rem;
     cursor: pointer;
 }
-/* Objeto empacado: texto tachado y apagado (clase agregada con JavaScript) */
-.item.listo .nombre {
+.item.empacado .nombre {
     text-decoration: line-through;
     color: var(--texto-suave);
 }
@@ -178,7 +184,6 @@ select:focus {
     border-radius: 10px;
     padding: 0 8px;
 }
-/* Botones de texto (eliminar y desmarcar) */
 .btn-texto {
     background: none;
     border: none;

@@ -13,34 +13,30 @@
     <!--|estructuracion_acampada_basica|-->
     <!------------------------------------>
     <main class="app">
-        <!-- ENCABEZADO: título y descripción -->
         <header class="encabezado">
             <h1>Acampada Básica</h1>
             <p>Marca lo que ya empacaste y agrega lo que te haga falta.</p>
         </header>
-        <!-- PANEL 1: progreso del equipaje -->
+        <!-------------------->
+        <!--|panel_progreso|-->
+        <!-------------------->
         <section class="panel">
-            <!-- JavaScript escribe cuántos objetos llevas -->
             <p id="textoProgreso" class="texto-progreso"></p>
-            <!-- Barra de progreso: el ancho de #relleno lo controla JavaScript -->
             <div class="barra">
                 <div class="relleno" id="relleno"></div>
             </div>
-            <!-- Mensaje que aparece cuando todo está empacado -->
-            <p id="listo" class="listo" hidden>¡Todo listo para acampar! 🏕️</p>
+            <p id="listo" class="todo-listo" hidden>¡Todo listo para acampar! 🏕️</p>
         </section>
-        <!-- PANEL 2: formulario para agregar objetos -->
+        <!---------------------->
+        <!--|panel_formulario|-->
+        <!---------------------->
         <section class="panel">
             <h2>Agregar objeto</h2>
-            <!-- novalidate: la validación la hacemos nosotros con JavaScript -->
             <form id="formulario" class="formulario" novalidate>
-                <!-- Campo: nombre del objeto -->
                 <div class="campo">
                     <label for="nombre">Objeto</label>
-                    <input type="text" id="nombre" placeholder="Ej: Hamaca"
-                        maxlength="30" autocomplete="off">
+                    <input type="text" id="nombre" placeholder="Ej: Hamaca" maxlength="30" autocomplete="off">
                 </div>
-                <!-- Lista desplegable: categoría del objeto -->
                 <div class="campo">
                     <label for="categoria">Categoría</label>
                     <select id="categoria">
@@ -50,25 +46,21 @@
                         <option>Otros</option>
                     </select>
                 </div>
-                <!-- Botón que envía el formulario -->
                 <button type="submit" class="boton">Agregar</button>
             </form>
-            <!-- Aquí JavaScript escribe los mensajes de error -->
             <p id="mensaje" class="mensaje" role="alert"></p>
         </section>
-        <!-- PANEL 3: lista de objetos -->
+        <!----------------->
+        <!--|panel_lista|-->
+        <!----------------->
         <section class="panel">
-            <!-- Filtros: ver todos, solo los que faltan o solo los empacados -->
             <nav class="filtros">
                 <button class="filtro" data-filtro="todos" type="button">Todos</button>
                 <button class="filtro" data-filtro="faltan" type="button">Faltan</button>
                 <button class="filtro" data-filtro="listos" type="button">Empacados</button>
             </nav>
-            <!-- Texto que se muestra cuando no hay objetos en el filtro -->
             <p id="vacio" class="vacio" hidden>No hay objetos en esta vista.</p>
-            <!-- Lista donde JavaScript inserta cada objeto -->
             <ul id="lista" class="lista"></ul>
-            <!-- Botón para quitar todas las marcas -->
             <button id="btnDesmarcar" class="btn-texto" type="button">Desmarcar todo</button>
         </section>
     </main>
